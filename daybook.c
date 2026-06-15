@@ -37,7 +37,7 @@ void disableRaw() {
 
 void enableRaw() {
 	tcgetattr(STDIN_FILENO, &original);
-    	atexit(disableRaw);	
+	atexit(disableRaw);	
 	struct termios raw = original;
 	// these are bitwise 
 	// ~ == bitwise NOT
@@ -47,7 +47,7 @@ void enableRaw() {
 	raw.c_lflag &= ~(ICANON | ECHO);
 	raw.c_cc[VMIN] = 1;
 	raw.c_cc[VTIME] = 0;
-    	printf("\033[?25l"); // hide cursor
+	printf("\033[?25l"); // hide cursor
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
 }
 
