@@ -30,7 +30,7 @@ void drawScreen(int selected) {
 }
 
 void disableRaw() {
-    	printf("\033[?25h"); // show cursor
+	printf("\033[?25h"); // show cursor
 	fflush(stdout);
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, &original);
 }
