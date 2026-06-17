@@ -1,1 +1,6 @@
 plan.md
+db
+*.db
+*.db-shm
+*.db-wal
+daybook.db
