@@ -15,3 +15,9 @@
   - snprintf() to write the string data from sscanf() to the items array
 - saveItems() uses fprintf to just write to file stream
 - put items[] onto the stack with MAX_ITEMS for simplicity, can put it on the heap if we need resizing down the line
+
+## work session #3
+
+- using csv was just not making any sense, fine for refresher on fgets and sscanf but i didnt want to do all of the string parsing
+- switched things over to a sql db, wrote the db init and migrations, and added support for items table and journal table
+- also added support for the "journal entry", disabling raw terminal mode, saving input with fgets from stdin to a journal variable, and drawing that entry to screen in the loop

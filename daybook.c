@@ -187,6 +187,7 @@ void editJournal(char *journal, int size) {
     fflush(stdout);
 
     if (fgets(journal, size, stdin) != NULL) {
+	// remove trailing \n from enter press
         journal[strcspn(journal, "\n")] = '\0';
     }
 
