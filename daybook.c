@@ -21,6 +21,7 @@ struct Item {
 	int checked;
 };
 
+// TODO: pull DB func into separate file and make header file
 void drawScreen(struct Item *items, int item_count, int selected, char *journal) {
 	// \033 == ESC
 	// \033[2J clears the screen
