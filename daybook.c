@@ -69,10 +69,10 @@ void drawScreen(struct Item *items, int item_count, int selected, char *journal)
 }
 
 void disableRaw() {
+	tcsetattr(STDIN_FILENO, TCSAFLUSH, &original);
+
 	printf("\033[?25h"); // show cursor
 	fflush(stdout);
-	printf("\r\n");
-	tcsetattr(STDIN_FILENO, TCSAFLUSH, &original);
 }
 
 void enableRaw() {
@@ -86,6 +86,8 @@ void enableRaw() {
 	raw.c_cc[VMIN] = 1;
 	raw.c_cc[VTIME] = 0;
 	printf("\033[?25l"); // hide cursor
+    fflush(stdout);
+
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
 }
 
