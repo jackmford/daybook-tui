@@ -1,5 +1,5 @@
 plan.md
-db
+*db*
 *.db
 *.db-shm
 *.db-wal

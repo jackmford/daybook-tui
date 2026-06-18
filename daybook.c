@@ -13,6 +13,9 @@
 #define MAX_ITEMS 32
 #define JOURNAL_SIZE 512
 
+#define REVERSE "\033[7m"
+#define RESET   "\033[0m"
+
 struct termios original;
 
 struct Item {
@@ -34,10 +37,19 @@ void drawScreen(struct Item *items, int item_count, int selected, char *journal)
 	printf("\r\nHabits\r\n\n");
 
 	for (int i = 0; i < item_count; i++) {
-		printf("%s[%c] %s\r\n",
-				selected == i ? "> " : " ",
-				items[i].checked ? 'x' : ' ',
-				items[i].entry);
+		if (selected == i) {
+		    printf(REVERSE "[%c] %s" RESET "\r\n",
+			   items[i].checked ? 'x' : ' ',
+			   items[i].entry);
+		} else {
+		    printf("[%c] %s\r\n",
+			   items[i].checked ? 'x' : ' ',
+			   items[i].entry);
+		}
+		//printf("%s[%c] %s\r\n",
+		//		selected == i ? "> " : " ",
+		//		items[i].checked ? 'x' : ' ',
+		//		items[i].entry);
 	}
 
 	printf("\r\n");
